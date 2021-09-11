@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class ChatMessage extends Model
 {
     use HasFactory;
+
+    /**
+     * Get the room associated with the ChatMessage
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function room(): HasOne
+    {
+        return $this->hasOne(ChatRoom::class, 'id', 'chat_room_id');
+    }
 }
