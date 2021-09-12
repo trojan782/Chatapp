@@ -51,6 +51,16 @@
             },
             setRoom( room ) {
                 this.currentRoom = room;
+                this.getMessages();
+            },
+            getMessages() {
+                axios.get('/chat/room/' + this.currentRoom.id + this.messages)
+                .then( response => {
+                    this.messages = response.data
+                })
+                .catch( error => {
+                    console.log(error)
+                })
             }
         },
         created() {
