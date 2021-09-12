@@ -18,4 +18,15 @@ class ChatMessage extends Model
     {
         return $this->hasOne(ChatRoom::class, 'id', 'chat_room_id');
     }
+
+    /**
+     * Get the user associated with the ChatMessage
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user(): HasOne
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
 }
