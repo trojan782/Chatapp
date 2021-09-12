@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>Input Message</div>
 </template>
 
 <script>
@@ -9,7 +9,7 @@ export default {
   data() {
     return {};
   },
-  props: {},
+  props: ['room'],
   methods: {},
 };
 </script>
