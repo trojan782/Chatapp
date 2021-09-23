@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ChatRoom;
 use App\Models\ChatMessage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
 {
@@ -21,7 +22,7 @@ class ChatController extends Controller
 
     public function newMessage( Request $request, $roomId) {
         $newMessage = new ChatMessage;
-        $newMessage->user_id = Auth::id;
+        $newMessage->user_id = Auth::id();
         $newMessage->chat_room_id = $roomId;
         $newMessage->message = $request->message;
         $newMessage->save();
