@@ -57,6 +57,7 @@
                 axios.get('/chat/room/' + this.currentRoom.id + this.messages)
                 .then( response => {
                     this.messages = response.data
+                    // console.log(response.data)
                 })
                 .catch( error => {
                     console.log(error)
@@ -68,3 +69,4 @@
         },
     })
 </script>
+
