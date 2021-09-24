@@ -28,7 +28,7 @@ export default {
   props: ["room"],
   methods: {
     sendMessage() {
-      if( this.message == ' ') {
+      if( this.message == ' ' ) {
           return;
       }
       axios.post('/chat/room/' + this.room.id + '/message',  {
@@ -36,8 +36,8 @@ export default {
       })
       .then( response => {
         if( response.status == 201 ) {
-          this.message = '';
-          $this.$emit('messagesent')
+          this.message = ' ';
+          this.$emit('messagesent')
         }
       })
       .catch( error => {

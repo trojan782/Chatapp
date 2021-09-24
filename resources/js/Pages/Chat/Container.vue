@@ -9,8 +9,10 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <message-container/>
-                    <input-message :room="currentRoom"/>
+                    <message-container
+                       :messages="messages"
+                    />
+                    <input-message :room="currentRoom" v-on:messagesent="getMessages()"/>
                 </div>
             </div>
         </div>
@@ -54,10 +56,10 @@
                 this.getMessages();
             },
             getMessages() {
-                axios.get('/chat/room/' + this.currentRoom.id + this.messages)
+                axios.get('/chat/room/' + this.currentRoom.id  + this.messages)
                 .then( response => {
-                    this.messages = response.data
-                    // console.log(response.data)
+                    // this.messages = response.data
+                    console.log(response.data)
                 })
                 .catch( error => {
                     console.log(error)
