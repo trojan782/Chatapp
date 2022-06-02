@@ -26,6 +26,6 @@
         "vue-loader": "^16.1.2"
     },
     "dependencies": {
-        "npm": "^7.22.0"
+        "npm": "^8.11.0"
     }
 }
